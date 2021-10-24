@@ -1,0 +1,41 @@
+@import './globals/';
+@import 'react-toastify/dist/ReactToastify.css';
+@import './components';
+@import './elements';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+html {
+  @include breakpoint(xs) {
+    font-size: calc(12px + .4vw);
+  }
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+.App {
+    background: $color-gray-500;
+    background-size: cover;
+    height: 100vh;
+}

@@ -1,0 +1,25 @@
+.header {
+  background: #fff;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    &__logo {
+      img {
+        max-width: 120px;
+        @include breakpoint(xs) {
+          max-width: 100px;
+        }
+      }
+    }
+    &__nav {
+      display: flex;
+      a {
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.product-detail {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  background: #fff;
+  border-radius: 8px;
+
+  @include breakpoint(xs) {
+    flex-direction: column;
+    width: 94%;
+  }
+  .detail__img {
+    margin: 16px 15px;
+    width: 45%;
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    @include breakpoint(xs) {
+      width: calc(100% - 20px);
+      margin: 16px 10px;
+    }
+  }
+  .detail__content {
+    margin: 30px 15px;
+    width: 40%;
+    @include breakpoint(xs) {
+      width: calc(100% - 20px);
+    }
+    .content {
+      &--title {
+        font-weight: 300;
+      }
+      &__info {
+        margin: 8px 0;
+        display: block;
+        table {
+          table-layout: fixed;
+          width: 60%;
+          border-collapse: separate;
+          border-spacing: 0 1rem;
+          @include breakpoint(xs) {
+            width: 80%;
+          }
+          td {
+            &:last-child {
+              font-weight: 100;
+            }
+          }
+        }
+      }
+      &__actions {
+        button {
+          padding: 10px 80px;
+          margin: 10px 5px 10px 0;
+        }
+        @include breakpoint(xs) {
+            position: fixed;
+            bottom: 10px;
+            z-index: 9;
+            padding: 10px;
+            background: #fff;
+            left: 0;
+            right: 0;
+            text-align: center;
+            button {
+                padding: 10px 50px;
+            }
+          }
+      }
+      &__pricing {
+        margin: 25px 0;
+        p {
+          font-weight: 600;
+          font-size: 1.2rem;
+        }
+        .offered {
+          background: $color-gray-500;
+          display: inline-block;
+          padding: 8px 10px;
+          font-size: 0.7rem;
+          border-radius: 8px;
+          margin-top: 6px;
+          span {
+            color: $color-gray;
+          }
+          b {
+            font-weight: 600;
+          }
+        }
+      }
+      &__description {
+        margin: 25px 0;
+        p {
+          margin-top: 10px;
+          font-weight: 300;
+        }
+        @include breakpoint(xs) {
+            margin: 25px 0 100px;
+        }
+      }
+    }
+  }
+}

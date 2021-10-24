@@ -1,0 +1,27 @@
+.home {
+  &__banner {
+    img {
+      width: 100%;
+    }
+  }
+  &__category {
+    margin: 20px 0;
+    display: flex;
+    overflow-x: scroll;
+    a {
+      display: inline-block;
+      text-transform: capitalize;
+      padding: 14px 0;
+      &:not(:last-child) {
+        margin-right: 50px;
+        @include breakpoint(xs) {
+          margin-right: 18px;
+        }
+      }
+    }
+    .active {
+      color: $color-primary;
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+}

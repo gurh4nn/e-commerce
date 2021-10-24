@@ -1,0 +1,35 @@
+.btn-primary {
+    background: $color-primary;
+    border-radius: 8px;
+    color: #fff;
+    padding: 10px 42px;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.btn-light {
+    background: $color-secondary;
+    border-radius: 8px;
+    color: $color-primary;
+    padding: 10px 42px;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.btn-warn {
+    background: $color-orange;
+    border-radius: 8px;
+    color: #fff;
+    padding: 10px 42px;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.btn-orange {
+    background: $color-orange-300;
+    border-radius: 8px;
+    color: $color-orange-500;
+    padding: 10px 42px;
+    font-size: 1rem;
+    margin: 10px;
+}

@@ -1,0 +1,113 @@
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: $modal-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999 !important;
+
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    position: absolute;
+    border-radius: 8px;
+    text-align: center;
+    .modal-close {
+      position: absolute;
+      right: 20px;
+      top: 12px;
+      font-size: 25px;
+      font-weight: 900;
+      color: rgb(113, 113, 113);
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    h3 {
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      color: $color-black-700;
+    }
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-header {
+      text-align: left;
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+    .offer {
+      &-item {
+        position: relative;
+        text-align: left;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        min-width: 20rem;
+        input {
+          width: 14px;
+          height: 14px;
+          margin: 0;
+        }
+        label {
+          margin-left: 4px;
+          font-size: 0.8rem;
+        }
+
+        .offer-price {
+          width: 100%;
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+          }
+        }
+        span {
+          position: absolute;
+          right: 12px;
+          font-size: 0.9rem;
+          color: $color-black-700;
+        }
+      }
+      button {
+        width: 80%;
+      }
+    }
+
+    .product-info {
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 8px;
+      background: $color-secondary;
+      .info-content {
+        display: flex;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 8px;
+          display: block;
+        }
+        p {
+          margin-left: 4px;
+          text-align: left;
+        }
+        span {
+          display: block;
+          font-size: .6rem;
+        }
+      }
+    }
+  }
+}

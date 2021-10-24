@@ -1,0 +1,89 @@
+.account {
+  &-info {
+    background: #fff;
+    margin-top: 20px;
+    padding: 16px 26px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    svg {
+      fill: #dddddd;
+      font-size: 2rem;
+    }
+    span {
+      margin-left: 10px;
+      color: $color-black-700;
+    }
+  }
+
+  .offer-list {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    margin-top: 20px;
+
+    .offer-tab {
+      span {
+        cursor: pointer;
+        padding: 6px 2px;
+        color: $color-gray;
+        margin-right: 30px;
+      }
+      .active {
+        color: $color-primary;
+        border-bottom: 1px solid $color-primary;
+      }
+    }
+  }
+  .offers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid $color-gray-500;
+    padding: 10px 20px;
+    margin-top: 20px;
+    &__info {
+      display: flex;
+      img {
+        width: 80px;
+        height: auto;
+        margin-right: 20px;
+      }
+      &--given {
+        background: $color-gray-500;
+        display: inline-block;
+        padding: 8px 10px;
+        font-size: 0.7rem;
+        border-radius: 8px;
+        margin-top: 6px;
+        span {
+          color: $color-gray;
+        }
+        b {
+          font-weight: 600;
+        }
+      }
+    }
+    &__actions {
+      button {
+        font-size: 0.8rem;
+        margin: 0;
+        margin-left: 10px;
+      }
+      span {
+          margin-left: 10px;
+      }
+      .approved {
+        color: $color-primary;
+      }
+      .denied {
+        color: $color-orange;
+
+      }
+      .sold {
+        color: #7FC872;
+      }
+    }
+  }
+}

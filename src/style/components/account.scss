@@ -21,17 +21,25 @@
     border-radius: 8px;
     padding: 20px 30px;
     margin-top: 20px;
+    @include breakpoint(md) {
+      padding: 20px 10px;
+    }
 
     .offer-tab {
       span {
         cursor: pointer;
         padding: 6px 2px;
         color: $color-gray;
-        margin-right: 30px;
+        &:first-child {
+          margin-right: 30px;
+        }
       }
       .active {
         color: $color-primary;
         border-bottom: 1px solid $color-primary;
+      }
+      @include breakpoint(md) {
+        text-align: center;
       }
     }
   }
@@ -43,12 +51,20 @@
     border: 1px solid $color-gray-500;
     padding: 10px 20px;
     margin-top: 20px;
+    @include breakpoint(md) {
+      padding: 10px;
+      display: block;
+    }
     &__info {
       display: flex;
       img {
         width: 80px;
         height: auto;
         margin-right: 20px;
+        @include breakpoint(md) {
+          width: 78px;
+          height: 84px;
+        }
       }
       &--given {
         background: $color-gray-500;
@@ -63,6 +79,25 @@
         b {
           font-weight: 600;
         }
+        @include breakpoint(md) {
+          display: block;
+          span,
+          b {
+            font-size: 0.9rem;
+          }
+        }
+      }
+      &__content {
+        @include breakpoint(md) {
+          flex: 1;
+        }
+
+        &--title {
+          @include breakpoint(md) {
+            font-weight: 400;
+            font-size: 1.3rem;
+          }
+        }
       }
     }
     &__actions {
@@ -72,17 +107,22 @@
         margin-left: 10px;
       }
       span {
-          margin-left: 10px;
+        margin-left: 10px;
       }
       .approved {
         color: $color-primary;
       }
       .denied {
         color: $color-orange;
-
       }
       .sold {
-        color: #7FC872;
+        color: #7fc872;
+      }
+      @include breakpoint(md) {
+        text-align: right;
+        button {
+          padding: 8px 30px;
+        }
       }
     }
   }

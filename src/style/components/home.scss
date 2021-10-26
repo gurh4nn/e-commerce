@@ -2,12 +2,15 @@
   &__banner {
     img {
       width: 100%;
+      border-radius: 8px;
     }
   }
   &__category {
     margin: 20px 0;
     display: flex;
     overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none; }
     a {
       display: inline-block;
       text-transform: capitalize;

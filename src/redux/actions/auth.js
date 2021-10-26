@@ -6,7 +6,7 @@ import { USER_SIGNIN, USER_SIGNUP, FETCH_START, FETCH_SUCCESS, FETCH_ERROR } fro
 export const signin = (payload) => {
     return async dispatch => {
         try {
-            // dispatch({type: FETCH_START});
+            dispatch({type: FETCH_START});
             const { data } = await axios.post(`${process.env.REACT_APP_SERVICE_BASE_URL}authorization/signin`, payload);
             localStorage.setItem('accessToken', data.access_token)
             localStorage.setItem('userMail', payload.email)

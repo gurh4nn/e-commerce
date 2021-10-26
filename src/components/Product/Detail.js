@@ -42,7 +42,7 @@ function Detail() {
   return (
     <>
       {content && (
-        <div className="product-detail">
+        <div className="product-detail container">
           <div className="detail__img">
             <img src={content.imageUrl} alt={content.title} />
           </div>

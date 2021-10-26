@@ -72,6 +72,47 @@ export const sendOffer = (id, price) => async (dispatch) => {
   }
 };
 
+export const addProduct = (payload) => async (dispatch) => {
+  try {
+    dispatch({ type: FETCH_START });
+    const token = localStorage.getItem("accessToken");
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_SERVICE_BASE_URL}product/create`, payload,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    toast.success("Ürün Başarıyla Eklendi, anasayfaya yönlendiriliyorsunuz...", {autoClose: 3000});
+    dispatch({ type: FETCH_SUCCESS });
+    return true;
+  } catch (e) {
+    toast.error(e.response.data?.message);
+  }
+};
+
+export const imageUpload = (payload) => async (dispatch) => {
+  try {
+    dispatch({ type: FETCH_START });
+    const token = localStorage.getItem("accessToken");
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_SERVICE_BASE_URL}file/upload/image`, payload,
+      {
+        headers: {
+          'content-type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    toast.success("Görsel Başarıyla Yüklend");
+    dispatch({ type: FETCH_SUCCESS });
+    return data;
+  } catch (e) {
+    toast.error(e.response.data?.message);
+  }
+};
+
 export const buyOfferedProduct = (id) => async (dispatch) => {
     try {
       dispatch({ type: FETCH_START });

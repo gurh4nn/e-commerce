@@ -1,6 +1,5 @@
 .product-detail {
-  width: 80%;
-  margin: 20px auto;
+  margin: 20px auto !important;
   display: flex;
   background: #fff;
   border-radius: 8px;
@@ -52,13 +51,17 @@
         }
       }
       &__actions {
+        display: flex;
         button {
-          padding: 10px 80px;
           margin: 10px 5px 10px 0;
+          width: 100%;
+        }
+        .btn-orange {
+          width: auto;
         }
         @include breakpoint(xs) {
             position: fixed;
-            bottom: 10px;
+            bottom: 20px;
             z-index: 9;
             padding: 10px;
             background: #fff;

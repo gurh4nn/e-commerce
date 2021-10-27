@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { signin } from "redux/actions/auth";
-import { toast } from "react-toastify";
 import { useHistory } from "react-router";
 import useDocumentTitle from "components/Layout/useDocumentTitle";
 import { Link } from "react-router-dom";
@@ -17,14 +16,9 @@ const Login = () => {
   const onSubmit = async (data) => {
     const loginCheck = await dispatch(signin(data));
     if (loginCheck) {
-      toast.success("Giris basarili, yonlendiriliyorsunuz...", {
-        autoClose: 3000,
-      });
       setTimeout(() => {
         history.push("/");
       }, 3000);
-    } else {
-      toast.error("Bilgilerinizi kontrol ediniz");
     }
   };
   useDocumentTitle('Giriş Yap')

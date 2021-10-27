@@ -22,4 +22,5 @@ export const STATUS_LIST = 'STATUS_LIST';
 //Product
 export const PRODUCT_LIST = 'PRODUCT_LIST';
 export const SEND_OFFER = 'SEND_OFFER';
+export const ADD_PRODUCT = 'ADD_PRODUCT';
 

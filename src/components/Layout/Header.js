@@ -1,13 +1,10 @@
 import { HeaderButton } from "components/Styled/Buttons";
-import { useEffect } from "react";
-import { useState } from "react";
 import { AiOutlineUser, AiOutlinePlus } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header() {
   const mobileCheck = window.innerWidth;
-  const [userLogged, setUserLogged] = useState(false)
   const loggedIn = useSelector(({auth}) => auth.token)
   return (
     <div className="header">

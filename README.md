@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+<div align="center">
+ <h2> E-Commerce Project </h2>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <h4>Description</h4>
+  <p align="center">
+Are you looking for a platform to sell your used products? You are at the right place! 
+This project is an e-commerce project where you can sell used products. You can bid and buy the products listed in the project. 
+You can also sell your own products if you wish.
+  </p>
+</div>
+<br/>
 
-## Available Scripts
+<p align="center">
+Built with <a href="https://reactjs.org/" target="_blank">React.js v17</a> & <a href="https://redux.js.org/" target="_blank">Redux</a> & <a href="https://sass-lang.com/" target="_blank">SASS</a></p>
 
-In the project directory, you can run:
+<p align="center">
+   Hosted with <a href="https://vercel.com/" target="_blank">Vercel</a>
+</p>
 
-### `npm start`
+<h3 align="center">
+  🚀 <a href="https://bootcamp-e-commerce.vercel.app/" target="_blank"> Demo </a>
+</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 📷 Screenshot
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<div align="center">
+  <img alt="Demo" src="https://i.ibb.co/Y2BMzcy/Screen-Shot-2021-10-27-at-09-50-41.png"/>
+</div>
 
-### `npm test`
+## 🗂️ Packages used in this project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Package                 | Version |
+| ----------------------- | ------- |
+| axios                   | ^0.21.4 |
+| node-sass               | ^4.14.1 |
+| redux                   | ^4.1.1  |
+| redux-thunk             | ^2.3.0  |
+| react-toastify          | ^8.0.3  |
+| react-icons             | ^4.3.1  |
+| dotenv                  | ^10.0.0 |
+| react-hook-form         | ^7.17.2 |
+| styled-components       | ^5.3.1  |
+| react-content-loader    | ^6.0.3  |
 
-### `npm run build`
+## 🛠 Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Install deps with NPM or Yarn:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+#or
+yarn install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. In the project directory, run the development server:
 
-### `npm run eject`
+```bash
+npm start
+#or
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🚀 Build and Run for Production
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Generate full static build for production:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run build
+#or
+yarn build
+```

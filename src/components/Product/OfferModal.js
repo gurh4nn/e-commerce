@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { sendOffer } from "redux/actions/product";
-import {toast} from 'react-toastify'
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 

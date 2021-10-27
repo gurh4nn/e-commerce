@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { signup } from "redux/actions/auth";
-import { toast } from "react-toastify";
 import { useHistory } from "react-router";
 import useDocumentTitle from "components/Layout/useDocumentTitle";
 import { Link } from "react-router-dom";

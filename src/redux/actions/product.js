@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_START, FETCH_SUCCESS, PRODUCT_LIST, SEND_OFFER } from "./types";
+import { ADD_PRODUCT, FETCH_START, FETCH_SUCCESS, PRODUCT_LIST, SEND_OFFER } from "./types";
 import { toast } from "react-toastify";
 
 const getCookieValue = (name) =>
@@ -87,6 +87,7 @@ export const addProduct = (payload) => async (dispatch) => {
         },
       }
     );
+    dispatch({ type: ADD_PRODUCT, payload: data });
     toast.success("Ürün Başarıyla Eklendi, anasayfaya yönlendiriliyorsunuz...", {autoClose: 3000});
     dispatch({ type: FETCH_SUCCESS });
     return true;

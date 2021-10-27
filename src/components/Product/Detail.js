@@ -1,3 +1,5 @@
+import useDocumentTitle from "components/Layout/useDocumentTitle";
+import DetailLoader from "components/Loader/Loader";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -29,43 +31,35 @@ function Detail() {
     }
   }, [buy]);
 
-  // useEffect(() => {
-  //   if (offered) {
-  //     const buy = dispatch(buyProduct(id));
-  //     setShowBuy(false);
-  //     console.log(buy);
-  //   }
-  // }, [offered]);
-  useEffect(() => {
-    console.log(content?.title);
-  }, [content]);
+  
+  useDocumentTitle(content?.title)
   return (
-    <>
-      {content && (
-        <div className="product-detail container">
+    <div className="product-detail container">
+      {content ? (
+        <>
           <div className="detail__img">
-            <img src={content.imageUrl} alt={content.title} />
+            <img src={content?.imageUrl} alt={content?.title} />
           </div>
           <div className="detail__content">
-            <h1 className="content--title">{content.title}</h1>
+            <h1 className="content--title">{content?.title}</h1>
             <div className="content__info">
               <table>
                 <tr>
                   <td>Marka:</td>
-                  <td>{content.brand.title}</td>
+                  <td>{content?.brand.title}</td>
                 </tr>
                 <tr>
                   <td>Renk:</td>
-                  <td>{content.color.title}</td>
+                  <td>{content?.color.title}</td>
                 </tr>
                 <tr>
                   <td>Kullanım Durumu:</td>
-                  <td>{content.status.title}</td>
+                  <td>{content?.status.title}</td>
                 </tr>
               </table>
             </div>
             <div className="content__pricing">
-              <p>{content.price} TL</p>
+              <p>{content?.price} TL</p>
               {offered && (
                 <div className="offered">
                   <span>Verilen Teklif: </span>
@@ -74,7 +68,7 @@ function Detail() {
               )}
             </div>
             <div className="content__actions">
-              {!buy && !content.isSold ? (
+              {!buy && !content?.isSold ? (
                 <>
                   <button
                     onClick={() => setShowBuy((show) => !show)}
@@ -82,7 +76,7 @@ function Detail() {
                   >
                     Satin Al
                   </button>
-                  {offered || content.isOfferable && (
+                  {offered || content?.isOfferable && (
                     <button onClick={() => setShowOffer((show) => !show)} className="btn-light">Teklif Ver</button>
                   )}
                 </>
@@ -92,7 +86,7 @@ function Detail() {
             </div>
             <div className="content__description">
               <h4>Açıklama</h4>
-              <p>{content.description}</p>
+              <p>{content?.description}</p>
             </div>
           </div>
           {showBuy && <BuyModal setShowBuy={setShowBuy} setBuy={setBuy} />}
@@ -103,9 +97,9 @@ function Detail() {
               setOffered={setOffered}
             />
           )}
-        </div>
-      )}
-    </>
+        </>
+      ) : <DetailLoader />}
+      </div>
   );
 }
 

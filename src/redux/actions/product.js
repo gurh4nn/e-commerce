@@ -2,6 +2,9 @@ import axios from "axios";
 import { FETCH_START, FETCH_SUCCESS, PRODUCT_LIST, SEND_OFFER } from "./types";
 import { toast } from "react-toastify";
 
+const getCookieValue = (name) =>
+  document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)")?.pop() || "";
+
 export const getProductList = () => async (dispatch) => {
   try {
     dispatch({ type: FETCH_START });
@@ -32,7 +35,7 @@ export const getDetailItem = (id) => async (dispatch) => {
 export const buyProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_START });
-    const token = localStorage.getItem("accessToken");
+    const token = getCookieValue("accessToken");
     const config = {
       headers: {
         Authorization: "Bearer " + token,
@@ -53,7 +56,7 @@ export const buyProduct = (id) => async (dispatch) => {
 export const sendOffer = (id, price) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_START });
-    const token = localStorage.getItem("accessToken");
+    const token = getCookieValue("accessToken");
     const { data } = await axios.post(
       `${process.env.REACT_APP_SERVICE_BASE_URL}product/offer/${id}`,
       { offeredPrice: price },
@@ -75,7 +78,7 @@ export const sendOffer = (id, price) => async (dispatch) => {
 export const addProduct = (payload) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_START });
-    const token = localStorage.getItem("accessToken");
+    const token = getCookieValue("accessToken");
     const { data } = await axios.post(
       `${process.env.REACT_APP_SERVICE_BASE_URL}product/create`, payload,
       {
@@ -95,7 +98,7 @@ export const addProduct = (payload) => async (dispatch) => {
 export const imageUpload = (payload) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_START });
-    const token = localStorage.getItem("accessToken");
+    const token = getCookieValue("accessToken");
     const { data } = await axios.post(
       `${process.env.REACT_APP_SERVICE_BASE_URL}file/upload/image`, payload,
       {
@@ -116,7 +119,7 @@ export const imageUpload = (payload) => async (dispatch) => {
 export const buyOfferedProduct = (id) => async (dispatch) => {
     try {
       dispatch({ type: FETCH_START });
-      const token = localStorage.getItem("accessToken");
+      const token = getCookieValue("accessToken");
       const { data } = await axios.put(
         `${process.env.REACT_APP_SERVICE_BASE_URL}product/purchase/${id}`, '',
         {

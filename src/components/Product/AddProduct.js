@@ -7,6 +7,7 @@ import ImageUploading from "react-images-uploading";
 import { useForm } from "react-hook-form";
 import { addProduct } from "redux/actions/product";
 import { useHistory } from "react-router";
+import useDocumentTitle from "components/Layout/useDocumentTitle";
 
 function AddProduct() {
   const [formData, setFormData] = useState({
@@ -53,9 +54,6 @@ function AddProduct() {
   const color = useSelector(({ detail }) => detail.color);
   const status = useSelector(({ detail }) => detail.status);
 
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
 
   const maxNumber = 69;
 
@@ -103,7 +101,13 @@ function AddProduct() {
     obj[selectName] = { id: selected.id, title: selected.value };
     setFormData((state) => ({ ...state, ...obj }));
   };
+  useDocumentTitle('Ürün Ekle')
 
+  const loggedIn = useSelector(({auth}) => auth.token)
+  if(!loggedIn) {
+    history.push('/login')
+  }
+  
   return (
     <div className="container">
       <div className="add-product">
@@ -125,7 +129,6 @@ function AddProduct() {
             {errors.title?.type === "maxLength" && (
               <span className="error-area">Girilen Değer Çok uzun</span>
             )}
-            {errors.title?.type.length}
             <label htmlFor="productDesc">Açıklama</label>
             <input
               type="textbox"

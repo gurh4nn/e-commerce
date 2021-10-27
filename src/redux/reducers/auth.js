@@ -1,21 +1,23 @@
-import { USER_SIGNIN, USER_SIGNUP } from "redux/actions/types";
+import { LOGIN_CHECK, USER_SIGNIN, USER_SIGNUP } from "redux/actions/types";
 
 const initialState = {
-  token: '',
+  token: "",
   loading: true,
-  user: ''
+  user: "",
 };
 
 const auth = (state = initialState, action) => {
-    const { type, payload } = action;
-    switch ( type ) {
-        case USER_SIGNIN:
-            return { ...state, loading: false, user: payload };
-        case USER_SIGNUP: 
-            return { ...state, loading: false }
-        default:
-            return state;
-    }
+  const { type, payload } = action;
+  switch (type) {
+    case USER_SIGNIN:
+      return { ...state, loading: false, token: payload };
+    case USER_SIGNUP:
+      return { ...state, loading: false, token: payload };
+    case LOGIN_CHECK:
+      return { ...state, loading: false, token: payload };
+    default:
+      return state;
+  }
 };
 
-export default auth
+export default auth;

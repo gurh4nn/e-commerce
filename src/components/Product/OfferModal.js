@@ -4,10 +4,12 @@ import { useDispatch } from "react-redux";
 import { sendOffer } from "redux/actions/product";
 import {toast} from 'react-toastify'
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 
 function OfferModal({ setShowOffer, setOffered, content }) {
   const offerInput = useRef(null);
   const [offer, setOffer] = useState(0);
+  const history = useHistory();
   const dispatch = useDispatch();
   const offerCheck = useSelector(({product}) => product.offered)
   const close = (e) => {
@@ -29,6 +31,11 @@ function OfferModal({ setShowOffer, setOffered, content }) {
     setOffered(offerCheck)
     offerCheck && setShowOffer(false)
   };
+
+  const loggedIn = useSelector(({auth}) => auth.token)
+  if(!loggedIn) {
+    history.push('/login')
+  }
 
   return (
     <div onClick={close} className="modal">

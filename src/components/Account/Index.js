@@ -3,15 +3,26 @@ import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import ReceivedOffers from "./ReceivedOffers";
 import { useEffect } from "react";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 function Index() {
   const userEmail = localStorage.getItem("userMail");
   const [tabShow, setTabShow] = useState(false);
-//   const loggedIn = localStorage.getItem("accessToken");
+  let query = useQuery();
 
-
-//   useEffect(() => {
-//   }, [loggedIn])
+useEffect(() => {
+  const pageQuery = query.get('teklif')
+  if(pageQuery === 'aldiklarim') {
+    setTabShow(false)
+  } else if (pageQuery === 'verdiklerim') {
+    setTabShow(true)
+  }
+}, [query])
   return (
     <div className="account container">
       <div className="account-info">
@@ -20,8 +31,8 @@ function Index() {
       </div>
       <div className="offer-list">
           <div className="offer-tab">
-            <span className={!tabShow ? 'active' : ''} onClick={() => setTabShow(false)}>Teklif Aldıklarım</span>
-            <span className={tabShow ? 'active' : ''} onClick={() => setTabShow(true)}>Teklif Verdiklerim</span>
+            <Link to='/account?teklif=aldiklarim' className={!tabShow ? 'active' : ''} onClick={() => setTabShow(false)}>Teklif Aldıklarım</Link>
+            <Link to='/account?teklif=verdiklerim' className={tabShow ? 'active' : ''} onClick={() => setTabShow(true)}>Teklif Verdiklerim</Link>
           </div>
           {!tabShow ? <ReceivedOffers />  : <GivenOffers />}
        

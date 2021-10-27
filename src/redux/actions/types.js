@@ -6,6 +6,7 @@ export const FETCH_ERROR = "FETCH_ERROR";
 //Auth
 export const USER_SIGNIN = "USER_SIGNIN";
 export const USER_SIGNUP = "USER_SIGNUP";
+export const LOGIN_CHECK = "LOGIN_CHECK";
 
 //Account 
 export const GIVEN_OFFERS = "GIVEN_OFFERS";

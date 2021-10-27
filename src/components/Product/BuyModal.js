@@ -1,7 +1,17 @@
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
+
 function BuyModal({ setShowBuy, setBuy  }) {
+  const history = useHistory();
   const close = (e) => {
     e.target.className === 'modal' && setShowBuy(false)
   };
+
+  const loggedIn = useSelector(({auth}) => auth.token)
+  if(!loggedIn) {
+    history.push('/login')
+  }
+
   return (
     <div onClick={close} className="modal">
       <div className="modal-content">

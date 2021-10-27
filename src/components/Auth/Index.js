@@ -5,7 +5,6 @@ import { useLocation} from "react-router";
 
 function Index() {
   const location = useLocation();
-  console.log(location)
   return (
     <div className={style.auth}>
       <div className={style.auth__banner}>

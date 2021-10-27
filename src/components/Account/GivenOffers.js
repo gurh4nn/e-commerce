@@ -1,3 +1,5 @@
+import useDocumentTitle from "components/Layout/useDocumentTitle";
+import Loader from "components/Loader/Loader";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -7,7 +9,7 @@ import { buyOfferedProduct } from "redux/actions/product";
 function GivenOffers() {
   const dispatch = useDispatch();
   const givenOffer = useSelector(({ account }) => account.givenOffers);
-  console.log(givenOffer);
+  const loading = useSelector(({ account }) => account.loading);
   useEffect(() => {
     dispatch(givenOffers());
   }, [dispatch]);
@@ -15,55 +17,64 @@ function GivenOffers() {
   const buyProduct = (id) => {
     dispatch(buyOfferedProduct(id));
   };
+  useDocumentTitle('Teklif Verilenler')
+
   return (
     <>
-      {givenOffer.length > 0 ? (
+      {!loading ? (
         <>
-          {givenOffer
-            .slice(0)
-            .reverse()
-            .map((item, index) => (
-              <div className="offers given" key={index}>
-                <div className="offers__info">
-                  <img
-                    src={item.product.imageUrl}
-                    alt={item.product.title}
-                    className="offers__info--img"
-                  />
-                  <div className="offers__info__content">
-                    <h3 className="offers__info__content--title">
-                      {item.product.title}
-                    </h3>
-                    <div className="offers__info--given">
-                      <span>Verilen Teklif:</span> <b>{item.offeredPrice} TL</b>
+          {givenOffer.length > 0 ? (
+            <>
+              {givenOffer
+                .slice(0)
+                .reverse()
+                .map((item, index) => (
+                  <div className="offers given" key={index}>
+                    <div className="offers__info">
+                      <img
+                        src={item.product.imageUrl}
+                        alt={item.product.title}
+                        className="offers__info--img"
+                      />
+                      <div className="offers__info__content">
+                        <h3 className="offers__info__content--title">
+                          {item.product.title}
+                        </h3>
+                        <div className="offers__info--given">
+                          <span>Verilen Teklif:</span>{" "}
+                          <b>{item.offeredPrice} TL</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="offers__actions">
+                      {item.isSold !== "sold" && item.status === "accepted" && (
+                        <button
+                          onClick={() => buyProduct(item.product.id)}
+                          className="btn-primary"
+                        >
+                          Satın Al
+                        </button>
+                      )}
+
+                      {item.status === "accepted" && (
+                        <span className="approved">Onaylandı</span>
+                      )}
+                      {item.status === "rejected" && (
+                        <span className="denied">Reddedildi</span>
+                      )}
+                      {item.isSold === "sold" && (
+                        <span className="sold">Satin Alindi</span>
+                      )}
                     </div>
                   </div>
-                </div>
-                <div className="offers__actions">
-                  {item.isSold !== "sold" && item.status === "accepted" && (
-                    <button
-                      onClick={() => buyProduct(item.product.id)}
-                      className="btn-primary"
-                    >
-                      Satın Al
-                    </button>
-                  )}
-
-                  {item.status === "accepted" && (
-                    <span className="approved">Onaylandı</span>
-                  )}
-                  {item.status === "rejected" && (
-                    <span className="denied">Reddedildi</span>
-                  )}
-                  {item.isSold === "sold" && (
-                    <span className="sold">Satin Alindi</span>
-                  )}
-                </div>
-              </div>
-            ))}
+                ))}
+            </>
+          ) : (
+            <div className="offers received">"Data Yok..."</div>
+          )}
         </>
       ) : (
-        <div className="offers received">"Data Yok..."</div>
+        <Loader />
       )}
     </>
   );

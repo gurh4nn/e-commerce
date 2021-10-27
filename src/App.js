@@ -12,11 +12,17 @@ import Account from "components/Account/Index";
 import Home from "components/Home";
 import Auth from "components/Auth/Index";
 import { ToastContainer } from 'react-toastify';
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { checkAuth } from "redux/actions/auth";
 
 function App() {
-  const loggedIn = localStorage.getItem("accessToken");
-  
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(checkAuth())
+  }, [])
+  const loggedIn = useSelector(({auth}) => auth.token)
   return (
     <div className="App">
       <Router>

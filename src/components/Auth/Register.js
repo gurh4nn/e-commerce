@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { signup } from "redux/actions/auth";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router";
+import useDocumentTitle from "components/Layout/useDocumentTitle";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -13,21 +15,20 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data) => {
-    const loginCheck = dispatch(signup(data));
+    const loginCheck = await dispatch(signup(data));
+    console.log(loginCheck);
     if (loginCheck) {
-      toast.success("Giris basarili, yonlendiriliyorsunuz...", {
-        autoClose: 3000,
-      });
       setTimeout(() => {
         history.push("/");
       }, 3000);
-    } else {
-      toast.error("Bilgilerinizi kontrol ediniz");
     }
   };
+  useDocumentTitle("Kayıt Ol");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3 className="form-title">Kayıt Ol</h3>
+      <p className="form-desc">Fırsatlardan yararlanmak için kayıt ol!</p>
       <label htmlFor="mail">Email</label>
       <input
         id="mail"
@@ -57,16 +58,26 @@ const Register = () => {
         id="passwords"
         type="password"
         placeholder="Password"
-        {...register("password", { required: true, maxLength: 80 })}
+        {...register("password", {
+          required: true,
+          minLength: 8,
+          maxLength: 80,
+        })}
         className={errors.password?.type ? "input-error" : ""}
       />
       {errors.password?.type === "maxLength" && (
-        <span style={{ marginTop: "8px" }} className="error-area">Girilen Parola Çok uzun</span>
+        <span style={{ marginTop: "8px" }} className="error-area">
+          Girilen Parola Çok uzun
+        </span>
       )}
       {errors.password?.type === "minLength" && (
-        <span style={{ marginTop: "8px" }} className="error-area">Girilen Parola Çok Kısa</span>
+        <span style={{ marginTop: "8px" }} className="error-area">
+          Girilen Parola Çok Kısa
+        </span>
       )}
       <input type="submit" value="Üye Ol" />
+
+      <font className='user-status'>Hesabın var mı? <Link to='/login'>Giriş Yap</Link></font>
     </form>
   );
 };

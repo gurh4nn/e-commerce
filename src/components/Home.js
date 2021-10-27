@@ -6,6 +6,7 @@ import { getCategoryList } from "redux/actions/detail";
 import { getProductList } from "redux/actions/product";
 import { useLocation } from "react-router-dom";
 import Cards from "./Product/Cards";
+import useDocumentTitle from "./Layout/useDocumentTitle";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -27,7 +28,7 @@ function Home() {
   const filterCategory = productList?.filter(
     (item) => item.category.title === pageQuery
   );
-  console.log(filterCategory)
+  useDocumentTitle('Anasayfa')
   return (
     <div className='container'>
       <div className="home">

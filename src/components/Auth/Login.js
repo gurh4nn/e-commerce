@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { signin } from "redux/actions/auth";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router";
+import useDocumentTitle from "components/Layout/useDocumentTitle";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,9 +27,13 @@ const Login = () => {
       toast.error("Bilgilerinizi kontrol ediniz");
     }
   };
+  useDocumentTitle('Giriş Yap')
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3 className='form-title'>Giriş Yap</h3>
+      <p className='form-desc'>Fırsatlardan yararlanmak için giriş yap!</p>
       <label htmlFor="mail">Email</label>
       <input
         id="mail"
@@ -73,6 +79,7 @@ const Login = () => {
         <span style={{ marginTop: "8px" }} className="error-area">Girilen Parola Çok Kısa</span>
       )}
       <input type="submit" value="Giriş Yap" />
+      <font className='user-status'>Hesabın yok mu? <Link to='/register'>Kayıt Ol</Link></font>
     </form>
   );
 };

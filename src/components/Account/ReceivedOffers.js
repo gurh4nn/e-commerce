@@ -1,3 +1,5 @@
+import useDocumentTitle from "components/Layout/useDocumentTitle";
+import Loader from "components/Loader/Loader";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -10,6 +12,7 @@ import {
 function ReceivedOffers() {
   const dispatch = useDispatch();
   const receivedOffer = useSelector(({ account }) => account.receivedOffers);
+  const loading = useSelector(({ account }) => account.loading);
   useEffect(() => {
     dispatch(receivedOffers());
   }, [dispatch]);
@@ -20,8 +23,12 @@ function ReceivedOffers() {
   const reject = (id) => {
     dispatch(rejectOffer(id));
   };
+  useDocumentTitle('Teklif Alınanlar')
+
   return (
     <>
+    {!loading ? (
+      <>
       {receivedOffer.length > 0 ? (
         <>
           {receivedOffer
@@ -75,6 +82,8 @@ function ReceivedOffers() {
       ) : (
         <div className="offers received">"Data Yok..."</div>
       )}
+      </>
+    ) : <Loader />}
     </>
   );
 }

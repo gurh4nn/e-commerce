@@ -60,18 +60,20 @@
           width: auto;
         }
         @include breakpoint(xs) {
-            position: fixed;
-            bottom: 20px;
-            z-index: 9;
-            padding: 10px;
-            background: #fff;
-            left: 0;
-            right: 0;
-            text-align: center;
-            button {
-                padding: 10px 50px;
-            }
+          position: fixed;
+          bottom: 20px;
+          z-index: 9;
+          padding: 10px;
+          background: #fff;
+          left: 0;
+          right: 0;
+          text-align: center;
+          display: block;
+          button {
+            padding: 10px 50px;
+            width: auto;
           }
+        }
       }
       &__pricing {
         margin: 25px 0;
@@ -101,7 +103,7 @@
           font-weight: 300;
         }
         @include breakpoint(xs) {
-            margin: 25px 0 100px;
+          margin: 25px 0 100px;
         }
       }
     }

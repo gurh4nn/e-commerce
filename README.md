@@ -13,7 +13,7 @@ You can also sell your own products if you wish.
 <br/>
 
 <p align="center">
-Built with <a href="https://reactjs.org/" target="_blank">React.js v17</a> & <a href="https://redux.js.org/" target="_blank">Redux</a> & <a href="https://sass-lang.com/" target="_blank">SASS</a></p>
+Build with <a href="https://reactjs.org/" target="_blank">React.js v17</a> & <a href="https://redux.js.org/" target="_blank">Redux</a> & <a href="https://sass-lang.com/" target="_blank">SASS</a></p>
 
 <p align="center">
    Hosted with <a href="https://vercel.com/" target="_blank">Vercel</a>

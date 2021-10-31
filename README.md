@@ -29,6 +29,24 @@ Build with <a href="https://reactjs.org/" target="_blank">React.js v17</a> & <a 
   <img alt="Demo" src="https://i.ibb.co/Y2BMzcy/Screen-Shot-2021-10-27-at-09-50-41.png"/>
 </div>
 
+<div align="center">
+  <h4>How To Fix Performance Problem?</h4>
+  <ul align='left'>
+    <li>
+      Use pagination and not show all data
+    </li>
+    <li>
+      Use lazyload images
+    </li>
+    <li>
+    Compress images and use webp format
+    </li>
+  </ul>
+  <img alt="desktop pagespeed" src="https://i.imgur.com/rAU7MMD.png"/>
+  <img alt="mobile pagespeed" src="https://i.imgur.com/tMfxmLg.png"/>
+</div>
+<br/>
+
 ## 🗂️ Packages used in this project
 
 | Package                 | Version |
